@@ -1,0 +1,52 @@
+<%= form_with model: reserva do |form| %>
+  <div>
+    <%= form.label :persona %><br>
+    <%= form.text_field :persona %>
+    <% @reserva.errors.full_messages_for(:persona).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+
+  <div>
+    <%= form.label :correo %><br>
+    <%= form.text_field :correo %>
+    <% @reserva.errors.full_messages_for(:correo).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+
+  <div>
+    <%= form.label :cedula %><br>
+    <%= form.text_field :cedula %>
+    <% @reserva.errors.full_messages_for(:cedula).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+
+  <div>
+    <%= form.label :celular %><br>
+    <%= form.text_field :celular %>
+    <% @reserva.errors.full_messages_for(:celular).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+
+  <div>
+    <% funciones = Funcion.where(pelicula_id: params[:pelicula_id]).collect {|fun| [fun.dia.strftime("%A, %d-%b-%Y"),fun.id]}  %>
+
+    <%= form.label :funcion_id, "Función" %><br>
+    <%= form.select :funcion_id, funciones %>
+
+    <% @reserva.errors.full_messages_for(:funcion_id).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+  <br/>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

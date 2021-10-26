@@ -1,0 +1,21 @@
+<h1><%= @pelicula.nombre %></h1>
+<p><%= @pelicula.sinopsis %></p>
+
+<% if true %>
+  <%= image_tag(@pelicula.urlimagen, size: "160x220", alt: @pelicula.nombre) %>
+<% end %>
+
+
+<ul>
+  <li><%= link_to "Editar", edit_pelicula_path(@pelicula) %></li>
+  <li><%= link_to "Destroy", pelicula_path(@pelicula),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %></li>
+</ul>
+
+<h2>Funciones</h2>
+<%= render @pelicula.funcions %>
+
+
+<h2>Agregar funciones:</h2>
+<%= render 'funcions/form' %>

@@ -1,0 +1,29 @@
+<%= form_with model: pelicula do |form| %>
+  <div>
+    <%= form.label :nombre %><br>
+    <%= form.text_field :nombre %>
+    <% pelicula.errors.full_messages_for(:nombre).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :sinopsis %><br>
+    <%= form.text_area :sinopsis %><br>
+    <% pelicula.errors.full_messages_for(:sinopsis).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :urlimagen %><br>
+    <%= form.text_field :urlimagen %><br>
+    <% pelicula.errors.full_messages_for(:urlimagen).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

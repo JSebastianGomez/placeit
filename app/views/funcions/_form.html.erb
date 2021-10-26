@@ -1,0 +1,12 @@
+<%= form_with model: [ @pelicula, @pelicula.funcions.build ] do |form| %>
+  <p>
+    <%= form.label :dia %><br>
+    <%= form.date_field :dia %>
+  </p>
+
+    <%= flash[:error] %>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

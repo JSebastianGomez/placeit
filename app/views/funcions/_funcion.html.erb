@@ -1,0 +1,15 @@
+<p>
+  <strong>Dia:</strong>
+  <%= funcion.dia.strftime("%A, %d-%b-%Y") %>
+</p>
+
+<p>
+  <strong>Cupos:</strong>
+  <%= funcion.cupos %>
+</p>
+
+<p>
+  <%= link_to 'Destruir Función', [funcion.pelicula, funcion],
+              method: :delete,
+              data: { confirm: "Are you sure?" } %>
+</p>

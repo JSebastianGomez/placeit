@@ -1,0 +1,28 @@
+<h1>Reservas</h1>
+
+<%= link_to "Nueva Reserva", new_reserva_path %>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">Pelicula</th>
+    <th scope="col">Nombre reservante</th>
+    <th scope="col">Correo electrónico</th>
+    <th scope="col">Cedula</th>
+    <th scope="col">Celular</th>
+  </tr>
+  </thead>
+  <tbody>
+
+  <% @reservas.each do |reserva| %>
+    <tr>
+      <td><%=  Pelicula.find(Funcion.find(reserva.funcion_id).pelicula_id).nombre %></td>
+      <td><%= link_to reserva.persona, reserva %></td>
+      <td><%= reserva.correo %></td>
+      <td><%= reserva.cedula %></td>
+      <td><%= reserva.celular %></td>
+    </tr>
+  <% end %>
+
+  </tbody>
+</table>

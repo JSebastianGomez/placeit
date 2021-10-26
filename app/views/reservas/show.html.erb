@@ -1,0 +1,16 @@
+<h1><%= @reserva.persona %></h1>
+
+<p><%= Pelicula.find(Funcion.find(@reserva.funcion_id).pelicula_id).nombre %></p>
+<p><%= Funcion.find(@reserva.funcion_id).dia.strftime("%A, %d-%b-%Y")
+%></p>
+<p><%= @reserva.correo %></p>
+<p><%= @reserva.cedula %></p>
+<p><%= @reserva.celular %></p>
+
+<ul>
+  <li><%= link_to "Editar", edit_reserva_path(@reserva) %></li>
+  <li><%= link_to "Destroy", reserva_path(@reserva),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %></li>
+
+</ul>

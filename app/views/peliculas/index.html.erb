@@ -1,0 +1,69 @@
+<% content_for :head do %>
+<style>
+    .contenedor {
+        position: relative;
+        width: 100%;
+    }
+
+    .image {
+        opacity: 1;
+        display: block;
+        width: 100%;
+        height: auto;
+        transition: .5s ease;
+        backface-visibility: hidden;
+    }
+
+    .middle {
+        transition: .5s ease;
+        opacity: 0;
+        position: absolute;
+        top: 90%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+    .contenedor:hover .image {
+        opacity: 0.3;
+    }
+
+    .contenedor:hover .middle {
+        opacity: 1;
+    }
+
+    .text {
+        background-color: blue;
+        color: white;
+        font-size: 16px;
+        padding: 16px 32px;
+    }
+</style>
+  <% end %>
+
+<h1>Peliculas</h1>
+
+<%= link_to "<i class='bi bi-plus'></i> Crear nueva pelicula".html_safe, new_pelicula_path %>
+
+<div class="container">
+  <div class="row">
+    <% @peliculas.each do |pelicula| %>
+      <div class="col-md-3">
+        <div class="thumbnail">
+          <div class="contenedor">
+            <%= link_to image_tag(pelicula.urlimagen, alt: pelicula.nombre, class: "border border-light border-4", style: "width:100%"), pelicula %>
+            <div class="middle">
+              <%= link_to "Reserva", new_reserva_path(pelicula_id: pelicula.id), class: "btn btn-primary text" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+
+
+
